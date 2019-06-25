@@ -1,0 +1,6 @@
+---
+name: elemental-responsive-table
+---
+
+DNADesign\Elemental\Controllers\ResponsiveTableController:
+  live_reload_port: 35000

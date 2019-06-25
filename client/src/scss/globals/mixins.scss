@@ -1,0 +1,18 @@
+@mixin respond($breakpoint, $maxmin:'min') {
+
+	@if map-has-key($breakpoints, $breakpoint) {
+		@if $maxmin=='max' {
+			$respond-size: map-get($breakpoints, $breakpoint) - 0.01 !global;
+		}
+		@else {
+			$respond-size: map-get($breakpoints, $breakpoint) !global;
+		}
+		@media screen and (#{$maxmin}-width: #{$respond-size}) {
+			@content;
+		}
+	}
+	@else {
+		@media #{$breakpoint} { @content; }
+	}
+
+}

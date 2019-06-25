@@ -1,0 +1,81 @@
+{
+  "name": "responsivetable",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.3.1",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^1.0.1",
+    "custom-event": "^1.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-config-carbon-base": "^1.0.1",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsdoc": "^3.14.0",
+    "eslint-plugin-prettier": "^2.7.0",
+    "file-loader": "^2.0.0",
+    "image-webpack-loader": "^4.6.0",
+    "mini-css-extract-plugin": "^0.4.5",
+    "node-sass": "^4.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.15.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "svg-url-loader": "^2.3.2",
+    "terser-webpack-plugin": "^1.2.3",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-livereload-plugin": "^2.1.1",
+    "webpack-merge": "^4.1.4"
+  },
+  "prettier": {
+    "printWidth": 130,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "modules": false,
+          "targets": {
+            "browserslist": [
+              "last 1 version",
+              "ie >= 11"
+            ]
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "transform-class-properties"
+    ]
+  },
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-aria": "^1.5.0",
+    "angular-google-analytics": "~1.1.6",
+    "pdfmake": "^0.1.20",
+    "svg-transform-loader": "^2.0.7",
+    "carbon-components": "^9.56.2"
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "dnadesign/responsivetable",
+    "description": "Responsive Table Element",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "elemental",
+        "responsivetable"
+    ],
+    "require": {
+        "dnadesign/silverstripe-elemental": "3.0.x-dev",
+        "silverstripe/vendor-plugin": "^1.0"
+    },
+    "extra": {
+        "installer-name": "responsivetable",
+        "expose": [
+            "client/dist"
+        ]
+    },
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev"
+}
