@@ -1,11 +1,13 @@
 <?php
 
+namespace DNADesign\Elemental\Models;
+
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\GridField\GridField;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
-use UndefinedOffset\SortableGridField\Forms\GridFieldSortableRows;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
 class TableColumn extends DataObject
 {
@@ -16,7 +18,7 @@ class TableColumn extends DataObject
     ];
 
     private static $has_one = [
-        'ElContentTable' => ElContentTable::class
+        'ElementResponsiveTable' => ElementResponsiveTable::class
     ];
 
     private static $has_many = [
@@ -33,30 +35,32 @@ class TableColumn extends DataObject
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+      $fields = parent::getCMSFields();
 
-        $fields->removeByName("ElContentTableID");
-        $fields->removeByName("TableCells");
-        $fields->removeByName("Sort");
+      $tableCells = $fields->dataFieldByName("TableCells");
 
-        if ($this->isInDB()) {
-            $tableCellsGrid = GridFieldConfig_RecordEditor::create();
+      $fields->removeByName("ElementResponsiveTableID");
+      $fields->removeByName("TableCells");
+      $fields->removeByName("Sort");
 
-            if (TableCell::get()->count() === TableRow::get()->count()) {
-                $tableCellsGrid->removeComponentsByType(GridFieldAddNewButton::class);
-                $tableCellsGrid->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
-            }
+      if ($this->isInDB()) {
+        $tableCellsGridConfig = $tableCells->getConfig();
+        $tableCellsGridConfig->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
 
-            $tableCellsGrid->addComponent(new GridFieldSortableRows('Sort'));
-
-            $grid = GridField::create('TableCells', 'Cells', $this->TableCells(), $tableCellsGrid)->setRightTitle('This is limited to the number of row headings');
-            $fields->addFieldToTab('Root.Main', $grid);
-        } else {
-            $warning = LiteralField::create('warning', '<span class="message warning">Please save your column before adding cells.</span>');
-            $fields->addFieldToTab('Root.Main', $warning);
+        if ($this->TableCells()->count() === $this->ElementResponsiveTable()->TableRows()->count()) {
+          $tableCellsGridConfig->removeComponentsByType(GridFieldAddNewButton::class);
         }
 
-        return $fields;
+        $tableCellsGridConfig->addComponent(GridFieldOrderableRows::create('Sort'));
+
+        $tableCells->setDescription('This is limited to the number of row headings');
+        $fields->addFieldToTab('Root.Main', $tableCells);
+      } else {
+        $warning = LiteralField::create('warning', '<span class="message warning">Please save your column before adding cells.</span>');
+        $fields->addFieldToTab('Root.Main', $warning);
+      }
+
+      return $fields;
     }
 
     public function getCellsCount()

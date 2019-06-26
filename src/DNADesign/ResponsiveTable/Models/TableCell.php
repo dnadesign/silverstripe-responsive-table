@@ -1,5 +1,7 @@
 <?php
 
+namespace DNADesign\Elemental\Models;
+
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\TextareaField;
 
@@ -25,7 +27,7 @@ class TableCell extends DataObject
 
     public function canCreate($member = null, $context = array())
     {
-        if (TableCell::get()->count() === TableRow::get()->count()) {
+        if ($this->TableColumn()->TableCells()->count() === $this->TableColumn()->ElementResponsiveTable()->TableRows()) {
             return false;
         }
 
@@ -39,7 +41,6 @@ class TableCell extends DataObject
         $fields->removeByName("TableColumnID");
         $fields->removeByName("Sort");
         $fields->removeByName("Content");
-        $fields->dataFieldByName('new-record');
 
         $description = 'Column reference - <strong>'. $this->TableColumn()->Heading . '</strong> -- Row reference - <strong>' . $this->getRelatedRowName() . '</strong>';
         $fields->addFieldToTab('Root.Main', TextareaField::create('Content', 'Content')->setDescription($description));
@@ -62,19 +63,19 @@ class TableCell extends DataObject
             return null;
         }
 
-        $rows = $this->TableColumn()->ElContentTable()->TableRows();
+        $rows = $this->TableColumn()->ElementResponsiveTable()->TableRows();
 
         return $rows[$index]->Name;
     }
 
     public function getRowName()
     {
-        $rows = $this->TableColumn()->ElContentTable()->TableRows();
+        $rows = $this->TableColumn()->ElementResponsiveTable()->TableRows();
 
         foreach ($this->TableColumn()->TableCells() as $key => $value) {
             # code...
             if ($value->ID === $this->ID) {
-                return $rows[$value->Sort - 1]->Name;
+                return $rows[$value->Sort]->Name;
             }
         }
     }

@@ -1,5 +1,7 @@
 <?php
 
+namespace DNADesign\Elemental\Models;
+
 use SilverStripe\ORM\DataObject;
 
 class TableRow extends DataObject
@@ -10,7 +12,7 @@ class TableRow extends DataObject
     ];
 
     private static $has_one = [
-        'ElContentTable' => ElContentTable::class
+        'ElementResponsiveTable' => ElementResponsiveTable::class
     ];
 
     private static $summary_fields = [
@@ -24,7 +26,7 @@ class TableRow extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName('ElContentTableID');
+        $fields->removeByName('ElementResponsiveTableID');
 
         return $fields;
     }

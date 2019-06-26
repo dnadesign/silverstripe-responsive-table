@@ -1,5 +1,5 @@
 {
-    "name": "dnadesign/responsivetable",
+    "name": "dnadesign/silverstripe-elemental-responsivetable",
     "description": "Responsive Table Element",
     "type": "silverstripe-vendormodule",
     "keywords": [
@@ -12,7 +12,7 @@
         "silverstripe/vendor-plugin": "^1.0"
     },
     "extra": {
-        "installer-name": "responsivetable",
+        "installer-name": "silverstripe-elemental-responsivetable",
         "expose": [
             "client/dist"
         ]

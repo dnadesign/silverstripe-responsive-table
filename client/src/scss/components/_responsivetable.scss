@@ -88,8 +88,9 @@
     &--empty {
         border: none;
     }
-    &:last-child {
-        border-right: none;
+
+    &:last-child, &:not(.table__cell--empty):last-child {
+      border-right: none;
     }
 
     &.table__row--name {

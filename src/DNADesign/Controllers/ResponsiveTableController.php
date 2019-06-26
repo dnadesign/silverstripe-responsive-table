@@ -15,10 +15,10 @@ class ResponsiveTableController extends ElementController
         if ($this->isLiveReload()) {
             Requirements::javascript(sprintf('http://localhost:%s/livereload.js', $this->config()->live_reload_port));
         } else {
-            Requirements::css('dnadesign/responsivetable: client/dist/responsivetable.css');
+            Requirements::css('dnadesign/silverstripe-elemental-responsivetable: client/dist/responsivetable.css');
         }
 
-        Requirements::javascript('dnadesign/responsivetable: client/dist/responsivetable.js');
+        Requirements::javascript('dnadesign/silverstripe-elemental-responsivetable: client/dist/responsivetable.js');
     }
 
     public function isLiveReload()

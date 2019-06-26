@@ -23,7 +23,7 @@ module.exports = {
             options: {
               name: '[name].[ext]',
               outputPath: 'fonts/',
-              publicPath: '/resources/vendor/dnadesign/responsivetable/client/dist/fonts',
+              publicPath: '/resources/vendor/dnadesign/silverstripe-elemental-responsivetable/client/dist/fonts',
             },
           },
         ],
@@ -39,7 +39,7 @@ module.exports = {
               limit: 10 * 1024,
               name: '[name].[ext]',
               outputPath: 'images/',
-              publicPath: '/resources/vendor/dnadesign/responsivetable/client/dist/images',
+              publicPath: '/resources/vendor/dnadesign/silverstripe-elemental-responsivetable/client/dist/images',
             },
           },
           {
@@ -57,7 +57,7 @@ module.exports = {
               limit: 10 * 1024,
               name: '[name].[ext]',
               outputPath: 'images/',
-              publicPath: '/resources/vendor/dnadesign/responsivetable/client/dist/images',
+              publicPath: '/resources/vendor/dnadesign/silverstripe-elemental-responsivetable/client/dist/images',
             },
           },
           // Pass images through optimisers
