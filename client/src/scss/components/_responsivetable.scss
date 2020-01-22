@@ -1,240 +1,252 @@
-.table {
-    display: none;
-    max-width: calc(100% - 20px);
-    margin: 0 auto;
-    flex-wrap: wrap;
+.responsive__table {
+  display: none;
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+  flex-wrap: wrap;
 
-    @include respond(md) {
-        display: flex;
-    }
-
-    @include respond(md) {
-        max-width: 75%;
-    }
-    @include respond(lg) {
-        max-width: 60%;
-    }
-}
-
-.table__title {
-    text-align: center;
-    margin: 45px auto;
-    @include respond(md) {
-        margin: 60px auto 100px;
-    }
-}
-
-.table__disclaimer {
-    max-width: calc(100% - 20px);
-    margin: 0 auto 25px;
-    @include respond(md) {
-        max-width: 75%;
-        margin: 0 auto 50px;
-    }
-    @include respond(lg) {
-        max-width: 60%;
-    }
-    span {
-        display: block;
-        max-width: 460px;
-        font-size: 12px;
-        line-height: 1;
-        color: $table-black;
-    }
-}
-
-.table__row {
+  @include respond(md) {
     display: flex;
-    width: 100%;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px 0 rgba($table-black, .5);
+  }
+
+  @include respond(md) {
+    max-width: 75%;
+  }
+
+  @include respond(lg) {
+    max-width: 60%;
+  }
 }
 
-.table__headings {
-    box-shadow: none;
+.responsive__table__title {
+  text-align: center;
+  margin: 45px auto;
 
-    .table__cell {
-        min-height: 60px;
-        justify-content: center;
-        color: $table-white;
-        border: none;
-        &.table__row--name {
-            background-color: transparent;
-        }
-    }
+  @include respond(md) {
+    margin: 60px auto 100px;
+  }
 }
 
-.table__row, .table__column {
-    &.table__headings .table__cell,
-    .table__cell.table__row--name,
-    .table__cell .table__row--name {
-        font-weight: bold;
-    }
-}
+.responsive__table__disclaimer {
+  max-width: calc(100% - 20px);
+  margin: 0 auto 25px;
 
-.table__cell {
-    border-right: 3px solid $table-bordergray;
-    background-color: $table-white;
-    padding: 25px;
-    justify-content: flex-start;
-    align-items: center;
-    display: flex;
-    flex: 1;
-    font-size: 18px;
-    min-width: 120px;
-    min-height: 180px;
-    flex-wrap: wrap;
+  @include respond(md) {
+    max-width: 75%;
+    margin: 0 auto 50px;
+  }
 
-    &--empty {
-        border: none;
-    }
+  @include respond(lg) {
+    max-width: 60%;
+  }
 
-    &:last-child, &:not(.table__cell--empty):last-child {
-      border-right: none;
-    }
-
-    &.table__row--name {
-        background-color: rgba($table-graybg, .5);
-        min-width: 140px;
-        display: none;
-        @include respond(md) {
-            display: flex;
-        }
-    }
-}
-
-.table__column--name {
+  span {
+    display: block;
+    max-width: 460px;
     font-size: 12px;
-    color: $table-white;
+    line-height: 1;
+    color: $responsive__table-black;
+  }
 }
 
-@mixin ColumnNameTheme($theme){
-    .table__column--name {
-        background-color: $theme;
-        &:nth-of-type(2n) {
-            background-color: $theme;
-        }
-        &:nth-of-type(3n) {
-            background-color: lighten($theme, 3%);
-        }
-        &:nth-of-type(4n) {
-            background-color: lighten($theme, 6%);
-        }
-    }
+.responsive__table__row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px 0 rgba($responsive__table-black, .5);
 }
 
-@include ColumnNameTheme($table-darkblue);
+.responsive__table__headings {
+  box-shadow: none;
 
-// .table__theme-- {
-//     &interislander {
-//         @include ColumnNameTheme($brand-interislander);
-//     }
-//     &explorer {
-//         @include ColumnNameTheme($brand-explorer);
-//     }
-//     &pacific {
-//         @include ColumnNameTheme($brand-pacific);
-//     }
-//     &tranzalpine {
-//         @include ColumnNameTheme($brand-tranzalpine);
-//     }
-// }
+  .responsive__table__cell {
+    min-height: 60px;
+    justify-content: center;
+    color: $responsive__table-white;
+    border: none;
 
-.ModularPage .maincontent, .landingcontent {
-    .table, .table__disclaimer, .promopage-content {
-        max-width: 99%;
-
-        @include respond(lg){
-            max-width: $body-max-width;
-        }
+    &.responsive__table__row--name {
+      background-color: transparent;
     }
+  }
+}
+
+.responsive__table__row,
+.responsive__table__column {
+
+  &.responsive__table__headings .responsive__table__cell,
+  .responsive__table__cell.responsive__table__row--name,
+  .responsive__table__cell .responsive__table__row--name {
+    font-weight: bold;
+  }
+}
+
+.responsive__table__cell {
+  border-right: 3px solid $responsive__table-bordergray;
+  background-color: $responsive__table-white;
+  padding: 25px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  font-size: 18px;
+  min-width: 120px;
+  min-height: 180px;
+  flex-wrap: wrap;
+
+  &--empty {
+    border: none;
+  }
+
+  &:last-child,
+  &:not(.responsive__table__cell--empty):last-child {
+    border-right: none;
+  }
+
+  &.responsive__table__row--name {
+    background-color: rgba($responsive__table-graybg, .5);
+    min-width: 140px;
+    display: none;
+
+    @include respond(md) {
+      display: flex;
+    }
+  }
+}
+
+.responsive__table__column--name {
+  font-size: 12px;
+  color: $responsive__table-white;
+}
+
+@mixin ColumnNameTheme($theme) {
+  .responsive__table__column--name {
+    background-color: $theme;
+
+    &:nth-of-type(2n) {
+      background-color: $theme;
+    }
+
+    &:nth-of-type(3n) {
+      background-color: lighten($theme, 3%);
+    }
+
+    &:nth-of-type(4n) {
+      background-color: lighten($theme, 6%);
+    }
+  }
+}
+
+@include ColumnNameTheme($responsive__table-darkblue);
+
+.ModularPage .maincontent,
+.landingcontent {
+
+  .responsive__table,
+  .responsive__table__disclaimer,
+  .promopage-content {
+    max-width: 99%;
+
+    @include respond(lg) {
+      max-width: $body-max-width;
+    }
+  }
 }
 
 /* Mobile Accordion */
 
-.table__mobile {
-    display: flex;
-    @include respond(md) {
-        display: none;
+.responsive__table__mobile {
+  display: flex;
+
+  @include respond(md) {
+    display: none;
+  }
+
+  .responsive__table__column {
+    flex: 100%;
+    margin-bottom: 15px;
+
+    &--shadow {
+      box-shadow: 0 2px 4px 0 rgba($responsive__table-black, .5);
     }
 
-    .table__column {
-        flex: 100%;
-        margin-bottom: 15px;
-        &--shadow {
-            box-shadow: 0 2px 4px 0 rgba($table-black, .5);
-        }
-        .table__column--name {
-            background-color: $table-darkblue;
-            color: $table-white;
-        }
-        &:nth-of-type(1n) {
-            .table__column--name {
-                background-color: $table-darkblue;
-            }
-        }
-        &:nth-of-type(2n) {
-            .table__column--name {
-                background-color: $table-midblue;
-            }
-        }
-        &:nth-of-type(3n) {
-            .table__column--name {
-                background-color: $table-lightblue;
-            }
-        }
-    }
-    .table__cell {
-        width: 100%;
-        border-right: none;
-        border-left: none;
-        min-height: 150px;
-        position: relative;
-        flex-wrap: wrap;
-        &:not(:last-child) {
-            border-bottom: 3px solid $table-bordergray;
-        }
-        .table__row--name {
-            width: 100%;
-            text-align: left;
-        }
-    }
-    .table__column--name{
-        min-height: 60px;
-        color: $table-black;
-        width: calc(100% + 2px);
-        position: relative;
-        left: -1px;
+    .responsive__table__column--name {
+      background-color: $responsive__table-darkblue;
+      color: $responsive__table-white;
     }
 
-    .accordion__panel {
-        box-shadow: 0 2px 4px 0 rgba($table-black, .5);
+    &:nth-of-type(1n) {
+      .responsive__table__column--name {
+        background-color: $responsive__table-darkblue;
+      }
     }
 
-    .table__accordion__button {
-        width: 21px;
-        height: 12px;
-        display: block;
-        overflow: hidden;
-        position: absolute;
-        right: 1.5em;
-
-        &:after {
-            background: url(#{$svg-path}arrow-white-down.svg) no-repeat 0 0 / 21px 12px;
-            content: "";
-            cursor: pointer;
-            display: block;
-            font: 400 48px/48px "Times New Roman";
-            height: 12px;
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 21px;
-        }
+    &:nth-of-type(2n) {
+      .responsive__table__column--name {
+        background-color: $responsive__table-midblue;
+      }
     }
 
-    .accordion__trigger[aria-expanded="true"] .table__accordion__button:after {
-        transform: rotate(-180deg);
+    &:nth-of-type(3n) {
+      .responsive__table__column--name {
+        background-color: $responsive__table-lightblue;
+      }
     }
+  }
+
+  .responsive__table__cell {
+    width: 100%;
+    border-right: none;
+    border-left: none;
+    min-height: 150px;
+    position: relative;
+    flex-wrap: wrap;
+
+    &:not(:last-child) {
+      border-bottom: 3px solid $responsive__table-bordergray;
+    }
+
+    .responsive__table__row--name {
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  .responsive__table__column--name {
+    min-height: 60px;
+    color: $responsive__table-black;
+    width: calc(100% + 2px);
+    position: relative;
+    left: -1px;
+  }
+
+  .accordion__panel {
+    box-shadow: 0 2px 4px 0 rgba($responsive__table-black, .5);
+  }
+
+  .responsive__table__accordion__button {
+    width: 21px;
+    height: 12px;
+    display: block;
+    overflow: hidden;
+    position: absolute;
+    right: 1.5em;
+
+    &:after {
+      background: url(#{$svg-path}arrow-white-down.svg) no-repeat 0 0 / 21px 12px;
+      content: "";
+      cursor: pointer;
+      display: block;
+      font: 400 48px/48px "Times New Roman";
+      height: 12px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 21px;
+    }
+  }
+
+  .accordion__trigger[aria-expanded="true"] .responsive__table__accordion__button:after {
+    transform: rotate(-180deg);
+  }
 
 }

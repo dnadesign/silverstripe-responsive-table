@@ -7,11 +7,11 @@ use DNADesign\Elemental\Controllers\ResponsiveTableController;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
 /**
  * @package elemental
@@ -30,14 +30,13 @@ class ElementResponsiveTable extends BaseElement
 
   private static $controller_class = ResponsiveTableController::class;
 
-  private static $icon = 'font-icon-checklist';
+  private static $icon = 'font-icon-thumbnails';
 
   private static $db = [
     'HideAllRowNames' => 'Boolean',
     'HideAllColumnHeading' => 'Boolean',
     'DisableMobileAccordion' => 'Boolean',
     'ExtraInfo' => 'Varchar(255)',
-    // 'TableTheme' => 'Enum(array("Interislander", "Northern Explorer", "Coastal Pacific", "TranzAlpine"), "Interislander")'
   ];
 
   private static $has_many = [
@@ -66,8 +65,6 @@ class ElementResponsiveTable extends BaseElement
         CheckboxField::create('HideAllRowNames', 'Hide all row names'),
         CheckboxField::create('HideAllColumnHeading', 'Hide all column headings'),
         CheckboxField::create('DisableMobileAccordion', 'Disable mobile accordion'),
-        // DropdownField::create('TableTheme', 'Theme', $this->dbObject('TableTheme')->enumValues())
-        //   ->setRightTitle('Theme colour for column headings'),
         GridField::create('TableRows', 'Rows', $this->TableRows(), $tableRowsGrid->getConfig()),
         GridField::create('TableColumns', 'Columns', $this->TableColumns(), $tableColumnsGrid->getConfig()),
         TextField::create('ExtraInfo')->setRightTitle('Content displayed below table')
@@ -76,7 +73,6 @@ class ElementResponsiveTable extends BaseElement
       $fields->removeByName('HideAllRowNames');
       $fields->removeByName('HideAllColumnHeading');
       $fields->removeByName('DisableMobileAccordion');
-      // $fields->removeByName('TableTheme');
       $fields->removeByName('ExtraInfo');
       $warning = LiteralField::create('warning', '<span class="message warning">Please save your table before adding content.</span>');
       $fields->addFieldToTab('Root.Main', $warning);
@@ -111,7 +107,7 @@ class ElementResponsiveTable extends BaseElement
 
       $cellDiff = $columnCount - ($row->count() - 1);
 
-      if($columnCount > 0 && $cellDiff <= $columnCount) {
+      if ($columnCount > 0 && $cellDiff <= $columnCount) {
         if ($cellDiff > 0 && $row->count() > 1) {
           for ($i = 0; $i < $cellDiff; $i++) {
             $row->push(new ArrayData(['Value' => '', 'RowName' => $rowName->Name]));
