@@ -96,19 +96,11 @@ class CustomResponsiveTableExtension extends DataExtension
 
 .responsive__table__theme-- {
     &theme1 {
-        @include ColumnNameTheme($brand-interislander);
+        @include ColumnNameTheme($brand-example-1);
     }
 
     &theme2 {
-        @include ColumnNameTheme($brand-explorer);
-    }
-
-    &theme3 {
-        @include ColumnNameTheme($brand-pacific);
-    }
-
-    &theme4 {
-        @include ColumnNameTheme($brand-tranzalpine);
+        @include ColumnNameTheme($brand-example-2);
     }
 }
 ```
