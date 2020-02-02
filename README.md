@@ -2,7 +2,7 @@
 
 ```.yml
   "require": {
-    "dnadesign/silverstripe-elemental-responsivetable": "1.0"
+    "dnadesign/silverstripe-elemental-responsivetable": "^1.0"
   },
   "repositories": [
     {
