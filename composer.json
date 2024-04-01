@@ -8,8 +8,8 @@
         "responsivetable"
     ],
     "require": {
-        "dnadesign/silverstripe-elemental": "^4.3",
-        "silverstripe/vendor-plugin": "^1.0"
+        "dnadesign/silverstripe-elemental": "^5",
+        "silverstripe/vendor-plugin": "^2.0"
     },
     "extra": {
         "installer-name": "silverstripe-elemental-responsivetable",
